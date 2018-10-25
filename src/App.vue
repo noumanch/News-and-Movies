@@ -1,12 +1,47 @@
 <template>
-  <div class="class">
+  <div class="class" style="background:#F5F3CE;">
+    <div class="container" >
+
     <v-parallax
-    height="600"
+      style="margin-top:5vh"
     src="http://www.scifiimaginarium.com/wp-content/uploads/2018/01/hollywood-is-nearing-its-superhero-saturation-point.jpg"
   ></v-parallax>
-    <div id="app" class="v-toolbar flat">
+
+    <div id="app" class="v-toolbar flat" style="background:white;">
       <v-navigation-drawer persistent :clipped="clipped" v-model="drawer" enable-resize-watcher fixed app>
-        <v-card>
+        <v-list dense>
+      </v-list>
+      
+       <v-list-tile @click="">
+         <v-list-tile-action>
+           <v-icon>business</v-icon>
+         </v-list-tile-action>
+         <v-list-tile-content>
+           <router-link to="/" class="text-color"><v-list-tile-title>News&Press</v-list-tile-title></router-link>
+         </v-list-tile-content>
+       </v-list-tile>
+       </v-list>
+
+       <v-list-tile @click="">
+         <v-list-tile-action>
+           <v-icon>M</v-icon>
+         </v-list-tile-action>
+         <v-list-tile-content>
+           <router-link to="/about" class="text-color"><v-list-tile-title>Movies</v-list-tile-title></router-link>
+         </v-list-tile-content>
+       </v-list-tile>
+     </v-list>
+
+     <v-list-tile @click="">
+       <v-list-tile-action>
+         <v-icon>contact_mail</v-icon>
+       </v-list-tile-action>
+       <v-list-tile-content>
+         <router-link to="/contact" class="text-color"><v-list-tile-title>Contact</v-list-tile-title></router-link>
+       </v-list-tile-content>
+     </v-list-tile>
+   </v-list>
+        <!-- <v-card>
           <div>
             <v-toolbar flat class="transparent">
               <v-list-tile-title class="title">
@@ -18,6 +53,9 @@
             <div class="prof-drawer">
               <ul>
                 <li>
+                  <v-list-tile-action>
+            <v-icon>home</v-icon>
+          </v-list-tile-action>
                   <i class="fas fa-home pr-2"></i><span><router-link to="/" class="text-color">Home</router-link></span>
                 </li>
                 <li>
@@ -29,7 +67,7 @@
               </ul>
             </div>
           </div>
-        </v-card>
+        </v-card> -->
       </v-navigation-drawer>
       <v-toolbar app :clipped-left="clipped">
         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
@@ -42,6 +80,7 @@
         <router-view/>
       </v-content>
      </div>
+       </div>
      <v-footer
      dark
      height="auto"
@@ -52,7 +91,7 @@
        tile
      >
        <v-card-title class="teal">
-        <a style="color:red;" href="https://www.linkedin.com/in/nouman-shahid-5540b2169/" target="_blank"> <strong class="subheading">Get connected with us on social networks!</strong></a>
+        <a style="color:darkblue;" href="https://www.linkedin.com/in/nouman-shahid-5540b2169/" target="_blank"> <strong class="subheading">Get connected with us on social networks!</strong></a>
 
          <v-spacer></v-spacer>
        </v-card-title>
@@ -62,15 +101,17 @@
        </v-card-actions>
      </v-card>
    </v-footer>
-   </div>
+
+
+</div>
 
 </template>
 
 <style>
 
 body{
-  background: -webkit-linear-gradient(to right, #bbd2c5, #536976, #292e49); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #bbd2c5, #536976, #292e49);
+  /* background: -webkit-linear-gradient(to right, #bbd2c5, #536976, #292e49); /* Chrome 10-25, Safari 5.1-6 */
+  /* background: linear-gradient(to right, #bbd2c5, #536976, #292e49); */
 }
 .main{
   position: relative;
@@ -100,7 +141,7 @@ body{
     color: white;
     border: none!important;
     border-left: 2px solid hsla(200, 30%, 25%,100)!important;
-    height: 63vh!important;
+    height: 57vh!important;
     width: 5px!important;
 }
 </style>
@@ -135,7 +176,8 @@ methods:{
 
 
 
-}
+},
+
 }
 
 }

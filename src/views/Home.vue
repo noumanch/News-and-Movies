@@ -15,7 +15,7 @@
       <h1 style="margin-right: 60vw;">News</h1>
       <div style="margin-bottom:10px;" class="dropdown show">
         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Sort News
+          {{click}}
         </a>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         <p v-on:click="newsData('Bollywood')" class="dropdown-item">Bollywood</p>
@@ -24,7 +24,34 @@
         <p v-on:click="newsData('entertainment')" class="dropdown-item">Entertainment</p>
       </div>
       </div>
-      <div class="row d-flex justify-content-center">
+      <v-layout row v-for="(data, i) in news" :key="i">
+    <v-flex xs12 sm8 offset-sm2>
+      <v-card class="ma-3">
+        <v-img v-if="data.urlToImage == null"
+          :src="require(`../assets/gossip.jpg`)"
+          aspect-ratio="2.75"
+        ></v-img>
+        <v-img v-else
+          :src="data.urlToImage"
+          aspect-ratio="2.75"
+        ></v-img>
+
+
+        <v-card-title primary-title>
+          <div>
+            <h3 class="headline mb-0">{{data.title}}</h3>
+            <div>{{data.description}}</div>
+          </div>
+        </v-card-title>
+
+        <v-card-actions style="background:#F5F3CE;">
+          <v-btn flat color="orange">Share</v-btn>
+          <v-btn :href="data.url" target="_blank" flat color="orange">Explore</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-flex>
+</v-layout>
+      <!-- <div class="row d-flex justify-content-center">
         <div v-for="data in news" class="main col-5 col-sm-3 shadow-lg p-3 mb-5 bg-white m-1">
           <span  v-if="data.urlToImage == null " >
             <img class="img-thumbnail newsimg" src="../assets/gossip.jpg" alt=""><br>
@@ -35,7 +62,7 @@
           <h5 class="pelement">{{data.publishedAt}}</h5> <br>
           <p class="pelement">{{data.title}}</p>
       </div>
-    </div>
+    </div> -->
     </div>
   </div>
 

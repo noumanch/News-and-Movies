@@ -3,17 +3,48 @@
     <hr>
     <div style="margin-bottom:10px;" class="dropdown show">
       <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Sort Movies
       </a>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
       <p v-on:click="movieData('')" class="dropdown-item">Latest Release</p>
       <p v-on:click="movieData('sort_by=popularity.desc')" class="dropdown-item">Popularity</p>
-      <p v-on:click="movieData('certification_country=US&certification.lte=G&sort_by=popularity.desc')" class="dropdown-item">Top for Kids</p>
-      <p v-on:click="movieData('primary_release_year=2018,2008&sort_by=.desc')" class="dropdown-item">Top 2018</p>
+      <p v-on:click="movieData('certification_country=US&certification.lte=G&sort_by=popularity.desc')" class="dropdown-item">Recomended for Under16</p>
+      <p v-on:click="movieData('primary_release_year=2018,2008&sort_by=.desc')" class="dropdown-item">Recomended for 16+</p>
     </div>
     </div>
-      <input  id="search" type="text" placeholder="Search.." name="search">
-        <div class="row d-flex justify-content-center">
+
+      <v-layout row wrap>
+              <v-flex v-for="(data, i) in movies" :key="i" xs12 sm6 md4>
+               <v-hover>
+                <v-card color="white"   slot-scope="{ hover }"
+                :class="`elevation-${hover ? 12 : 2}`"
+                 class="ma-3">
+                  <v-img
+                    :src="data.poster_path"
+                    aspect-ratio="1"
+                  ></v-img>
+                  <v-card-title primary-title>
+                    <div>
+                      <h3 class="headline mb-0">{{data.title}}</h3>
+                      <p class="pelement">{{data.overview}}</p> <br>
+                      <div>{{data.Plot}}</div>
+                    </div>
+                  </v-card-title>
+                  <!-- <v-divider light></v-divider> -->
+                  <v-card-actions style="background:lightblue;">
+                    <v-btn flat color="blue">Imdb Rating:</v-btn>
+                    <v-btn flat color="green">{{data.vote_average}}</v-btn>
+                    <v-btn v-on:click="share()" icon>
+                    <v-icon id="shareBtn" >share</v-icon>
+                    <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                  </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-hover>
+              </v-flex>
+            </v-layout>
+
+
+        <!-- <div class="row d-flex justify-content-center">
           <div v-for="data in movies" class="main col-5 col-sm-3 shadow-lg p-3 mb-5 m-1">
              <img :src="data.poster_path" alt="" class="img-fluid newsimg"> <br>
             <p class="pelement">{{data.title}}</p> <br>
@@ -28,7 +59,7 @@
 
             </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script type="text/javascript">
@@ -73,7 +104,24 @@ methods:{
     this.selectedData.push(data.backdrop_path, data.vote_count, data.overview, data.release_date);
     console.log(this.selectedData)
     popup.classList.toggle("show");
-}
+},
+  share(){
+    FB.ui({
+      method: 'share',
+      display: 'popup',
+      href: 'https://developers.facebook.com/docs/',
+    }, function(response){});
+  },
+  fbcode(){
+    (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+  }
+
 
 }
 }

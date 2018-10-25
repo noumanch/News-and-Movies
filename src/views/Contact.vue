@@ -4,19 +4,6 @@
       <h1 class="tracking-in-expand">GIVE US A SHOUT</h1>
       <h3>Use the form below to drop us a Email.</h3>
     </div>
-    <div class="container">
-      <div class="row">
-        <iframe class="col-md-6" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2513.7294351979244!2d-87.66391326941645!3d41.92334961265814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd2e37f9b8d2d%3A0x62ad8b907dd755d6!2s2245+N+Southport+Ave%2C+Chicago%2C+IL+60614%2C+USA!5e0!3m2!1sen!2sde!4v1529326463836 "frameborder="2" height="450" style="border:0" allowfullscreen>
-        </iframe>
-        <hr id="vl">
-        <div style="margin-top:15vh;">
-          <h2 class="vibrate-1" style="color:red;">Don't be a Stranger</h2><br>
-          <h2 >Just say Hello.</h2>
-          <h5>Feel free to get in touch with me..</h5>
-          <h5>004917657730037 <br>nouman_shahid_gr8@hotmail.com </h5>
-        </div>
-    </div>
-  </div>
     <v-parallax style="position:center;" src="http://images2.fanpop.com/images/photos/4500000/Lets-write-something-writing-4545949-1280-1024.jpg">
   <div id="form" class="container">
     <form class="" action="mailto:nouman_shahid_gr8@hotmail.com" method="POST" enctype="multipart/form-data">
@@ -54,6 +41,19 @@
 
   </div>
   </v-parallax>
+  <div class="container">
+    <div class="row">
+      <iframe class="col-md-6" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2513.7294351979244!2d-87.66391326941645!3d41.92334961265814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd2e37f9b8d2d%3A0x62ad8b907dd755d6!2s2245+N+Southport+Ave%2C+Chicago%2C+IL+60614%2C+USA!5e0!3m2!1sen!2sde!4v1529326463836 "frameborder="2" height="450" style="border:0" allowfullscreen>
+      </iframe>
+      <hr id="vl">
+      <div style="margin-top:15vh;">
+        <h2 class="vibrate-1" style="color:red;">Don't be a Stranger</h2><br>
+        <h2 >Just say Hello.</h2>
+        <h5>Feel free to get in touch with me..</h5>
+        <h5>004917657730037 <br>nouman_shahid_gr8@hotmail.com </h5>
+      </div>
+  </div>
+</div>
 
   </div>
 
