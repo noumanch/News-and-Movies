@@ -5,10 +5,10 @@
       <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       </a>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-      <p v-on:click="movieData('')" class="dropdown-item">Latest Release</p>
-      <p v-on:click="movieData('sort_by=popularity.desc')" class="dropdown-item">Popularity</p>
-      <p v-on:click="movieData('certification_country=US&certification.lte=G&sort_by=popularity.desc')" class="dropdown-item">Recomended for Under16</p>
-      <p v-on:click="movieData('primary_release_year=2018,2008&sort_by=.desc')" class="dropdown-item">Recomended for 16+</p>
+      <p v-on:click="movieData('')" class="dropdown-item">Featured</p>
+      <p v-on:click="movieData('sort_by=popularity.desc')" class="dropdown-item">Top Today</p>
+      <p v-on:click="movieData('certification_country=US&certification.lte=G&sort_by=top-today.desc')" class="dropdown-item">Top Today for Under16</p>
+      <p v-on:click="movieData('primary_release_year=2018&sort_by=Action.desc')" class="dropdown-item">Today's special</p>
     </div>
     </div>
 
@@ -25,17 +25,20 @@
                   <v-card-title primary-title>
                     <div>
                       <h3 class="headline mb-0">{{data.title}}</h3>
-                      <p class="pelement">{{data.overview}}</p> <br>
-                      <div>{{data.Plot}}</div>
                     </div>
+                    <v-expansion-panel>
+                      <v-expansion-panel-content>
+                        <div slot="header">Overview</div>
+                        <v-card-text>{{data.overview}}</v-card-text>
+                      </v-expansion-panel-content>
+                    </v-expansion-panel>
                   </v-card-title>
                   <!-- <v-divider light></v-divider> -->
                   <v-card-actions style="background:lightblue;">
                     <v-btn flat color="blue">Imdb Rating:</v-btn>
                     <v-btn flat color="green">{{data.vote_average}}</v-btn>
-                    <v-btn v-on:click="share()" icon>
-                    <v-icon id="shareBtn" >share</v-icon>
-                    <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                    <v-btn icon>
+                    <v-icon>share</v-icon>
                   </v-btn>
                   </v-card-actions>
                 </v-card>
@@ -105,24 +108,6 @@ methods:{
     console.log(this.selectedData)
     popup.classList.toggle("show");
 },
-  share(){
-    FB.ui({
-      method: 'share',
-      display: 'popup',
-      href: 'https://developers.facebook.com/docs/',
-    }, function(response){});
-  },
-  fbcode(){
-    (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-  }
-
-
 }
 }
 </script>
