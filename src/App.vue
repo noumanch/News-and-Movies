@@ -11,7 +11,6 @@
       <v-navigation-drawer persistent :clipped="clipped" v-model="drawer" enable-resize-watcher fixed app>
         <v-list dense>
       </v-list>
-      
        <v-list-tile @click="">
          <v-list-tile-action>
            <v-icon>business</v-icon>
@@ -27,7 +26,7 @@
            <v-icon>M</v-icon>
          </v-list-tile-action>
          <v-list-tile-content>
-           <router-link to="/about" class="text-color"><v-list-tile-title>Movies</v-list-tile-title></router-link>
+           <router-link to="/Movies" class="text-color"><v-list-tile-title>Movies</v-list-tile-title></router-link>
          </v-list-tile-content>
        </v-list-tile>
      </v-list>

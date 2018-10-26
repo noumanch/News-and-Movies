@@ -2,12 +2,6 @@
   <div class="home">
     <div class="container">
       <hr>
-      <div class="jumbotron">
-        <img style="height:45vh;" src="../assets/kim.png" alt=""><br>
-        <h4 style="display:inline;">Kim Kardashian Met the President of Uganda and, LOL, He Asked Her What Her Job Is</h4> <br>
-        <p style="display:inline;">He hasn't been "keeping up," apparently.
-        </p>
-      </div>
       <div v-show="loading" id="loader">
         <div class = "blob-1"></div>
         <div class = "blob-2"></div>

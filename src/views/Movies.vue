@@ -45,24 +45,6 @@
               </v-hover>
               </v-flex>
             </v-layout>
-
-
-        <!-- <div class="row d-flex justify-content-center">
-          <div v-for="data in movies" class="main col-5 col-sm-3 shadow-lg p-3 mb-5 m-1">
-             <img :src="data.poster_path" alt="" class="img-fluid newsimg"> <br>
-            <p class="pelement">{{data.title}}</p> <br>
-            <p class="pelement">Rating {{data.vote_average}}</p> <br>
-            <div style="color:red;" class="popup" v-on:click="popupFunction(data)"> Read More!
-              <div class="popuptext" id="myPopup">
-                  <img :src="selectedData[0]" alt=""> <br>
-                  <p class="pelement">{{selectedData[1]}}</p> <br>
-                  <p class="pelement">Overview: {{selectedData[2]}}</p> <br>
-                  <p class="pelement"> Release date: {{selectedData[3]}}</p> <br>
-              </div>
-
-            </div>
-      </div>
-    </div> -->
   </div>
 </template>
 <script type="text/javascript">
@@ -81,7 +63,6 @@ created(){
 methods:{
   movieData(x){
     this.click = x;
-    // fetch('https://api.myjson.com/bins/15mzg8') phi myData
     fetch(`http://api.themoviedb.org/3/discover/movie?${this.click}?&api_key=2a606229e659711df00f057f118426bc`)
     .then(function(data){
       return data.json();
@@ -101,13 +82,6 @@ methods:{
       })
 
   },
-  popupFunction(data) {
-    var popup = document.getElementById("myPopup");
-    this.selectedData = [],
-    this.selectedData.push(data.backdrop_path, data.vote_count, data.overview, data.release_date);
-    console.log(this.selectedData)
-    popup.classList.toggle("show");
-},
 }
 }
 </script>
