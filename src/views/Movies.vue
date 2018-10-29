@@ -63,24 +63,18 @@ created(){
 methods:{
   movieData(x){
     this.click = x;
-    fetch(`http://api.themoviedb.org/3/discover/movie?${this.click}?&api_key=2a606229e659711df00f057f118426bc`)
+    fetch(`https://api.themoviedb.org/3/discover/movie?${this.click}?&api_key=2a606229e659711df00f057f118426bc`)
     .then(function(data){
       return data.json();
       })
     .then(myData => {
-
       for(let i=0; i<myData.results.length; i++){
           myData.results[i].poster_path = "http://image.tmdb.org/t/p/w185/" + myData.results[i].poster_path;
           myData.results[i].backdrop_path = "http://image.tmdb.org/t/p/w185/" + myData.results[i].backdrop_path;
           myData.results[i].vote_count = "Vote Count"+" "+ myData.results[i].vote_count
           this.movies = myData.results;
         }
-
-
-
-
       })
-
   },
 }
 }
@@ -91,7 +85,6 @@ methods:{
   cursor: pointer;
   position: relative;
 }
-
 /* The actual popup (appears on top) */
  .popuptext {
   visibility: hidden;
@@ -103,9 +96,7 @@ methods:{
   border-radius: 6px;
   padding: 8px 5px;
   z-index: 1;
-
 }
-
 /* Popup arrow */
  .popuptext::after {
   content: "";
@@ -115,20 +106,17 @@ methods:{
   border-style: solid;
   border-color: #555 transparent transparent transparent;
 }
-
 /* Toggle this class when clicking on the popup container (hide and show the popup) */
 .popup .show {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s
 }
-
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
   from {opacity: 0;}
   to {opacity: 1;}
 }
-
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity:1 ;}
